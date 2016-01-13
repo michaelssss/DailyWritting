@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="POJO.MealEntity" table="Meal" schema="Meal">
+        <id name="code">
+            <column name="code" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="timestamp">
+            <column name="Timestamp" sql-type="timestamp"/>
+        </property>
+        <property name="category">
+            <column name="Category" sql-type="int(11)"/>
+        </property>
+        <property name="volume">
+            <column name="Volume" sql-type="float" precision="-1"/>
+        </property>
+    </class>
+</hibernate-mapping>
