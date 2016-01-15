@@ -20,7 +20,7 @@
         <property name="format_sql">true</property>
 
         <!-- DB schema will be updated if needed -->
-        <property name="hbm2ddl.auto">update</property>
+        <!--<property name="hbm2ddl.auto">update</property>-->
         <mapping resource="MealEntry.xml"/>
     </session-factory>
 </hibernate-configuration>
