@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="POJO.MealEntity" table="Meal" schema="Meal">
+    <class name="MyMealControlSystem.POJO.MealEntity" table="Meal" schema="Meal">
         <id name="code">
             <column name="code" sql-type="int(11)"/>
             <generator class="native"/>

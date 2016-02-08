@@ -1,4 +1,4 @@
-package POJO;
+package MyMealControlSystem.POJO;
 
 import java.sql.Timestamp;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package Service;
+package MyMealControlSystem.BaseService;
 
 
 import org.hibernate.SessionFactory;

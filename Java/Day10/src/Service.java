@@ -1,4 +1,4 @@
-import POJO.MealEntity;
+import MyMealControlSystem.POJO.MealEntity;
 import Utils.HibernateUtils;
 import org.hibernate.Session;
 

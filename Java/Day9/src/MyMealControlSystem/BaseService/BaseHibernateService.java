@@ -1,4 +1,4 @@
-package Service;
+package MyMealControlSystem.BaseService;
 
 import org.hibernate.Session;
 
@@ -52,7 +52,7 @@ public class BaseHibernateService<T> {
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            return (T) session.get(clazz, id);
+            return session.get(clazz, id);
         } finally {
             session.getTransaction().commit();
             session.close();

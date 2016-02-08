@@ -20,6 +20,6 @@
 
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
-        <mapping resource="POJO/MealEntry.hbm.xml"/>
+        <mapping resource="MyMealControlSystem.POJO/MealEntry.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
