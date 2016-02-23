@@ -8,9 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by michaelssss on 16-2-17.
  */
 public class MyTest {
-    @Test
+    //@Test
     public void mytest() {
-        FoodlistServices services = (FoodlistServices) new ClassPathXmlApplicationContext("applicationContext.xml").getBean("foodlistServices");
+        FoodlistServices services = (FoodlistServices) new ClassPathXmlApplicationContext("WEB-INF/applicationContext.xml").getBean("foodlistServices");
         FoodlistEntity foodlistEntity = new FoodlistEntity();
         foodlistEntity.setUid(0);
         foodlistEntity.setFoodName("测试");

@@ -7,6 +7,7 @@
     <groupId>MyWebClient</groupId>
     <artifactId>MealControlSystem</artifactId>
     <version>0.0.1</version>
+    <packaging>war</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -104,6 +105,36 @@
             <artifactId>activation</artifactId>
             <version>1.1</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.4.18</version>
+                <configuration>
+                    <container>
+                        <containerId>wildfly10x</containerId>
+                        <home>/home/michaelssss/server/wildfly-10.0.0.Final</home>
+                    </container>
+                    <configuration>
+                        <type>standalone</type>
+                        <home>${project.build.directory}/wildfly-10.0.0.Final</home>
+                    </configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

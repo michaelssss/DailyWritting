@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="MyMealControlSystem.POJO.FoodlistEntity" table="Foodlist" schema="Meal">
-        <id name="uid" column="uid"/>
+        <id name="uid" column="uid">
+            <generator class="increment"/>
+        </id>
         <property name="foodName" column="foodName"/>
         <property name="calories" column="Calories"/>
         <property name="type" column="Type"/>

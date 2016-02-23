@@ -15,6 +15,10 @@ public class FoodlistServices {
     @Autowired
     private Service service;
 
+    public List<FoodlistEntity> queryAll() {
+        return service.query(FoodlistEntity.class);
+    }
+
     public FoodlistEntity findOne(int code) {
         return service.query(FoodlistEntity.class, code);
     }

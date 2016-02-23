@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MealControlSystem:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="MealControlSystem-0.0.1.war">
+      <element id="artifact" artifact-name="MealControlSystem:war exploded" />
+    </root>
+  </artifact>
+</component>

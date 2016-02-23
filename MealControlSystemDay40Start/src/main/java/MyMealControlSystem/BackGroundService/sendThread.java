@@ -1,8 +1,13 @@
 package MyMealControlSystem.BackGroundService;
 
+import MyMealControlSystem.POJO.MealEntity;
+import MyMealControlSystem.Services.MealService;
+import org.springframework.web.context.WebApplicationContext;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -11,8 +16,10 @@ import java.util.Properties;
 public class sendThread implements Runnable {
     private String Content;
 
-    public sendThread(String content) {
-        this.Content = content;
+    private WebApplicationContext ctx;
+
+    public void setCtx(WebApplicationContext ctx) {
+        this.ctx = ctx;
     }
 
     private void send(String content) throws MessagingException {
@@ -41,10 +48,29 @@ public class sendThread implements Runnable {
     }
 
     public void run() {
-        try {
-            this.send(this.Content);
-        } catch (Exception e) {
+        System.out.println("邮件服务已经成功启动");
+        MealService service = (MealService) ctx.getBean("mealService");
+        List<MealEntity> list = service.queryAll();
+        StringBuilder stringBuilder = new StringBuilder();
 
+        long count = 0;
+        while (true) {
+            try {
+                //每周发送一次
+                Thread.sleep(Timer.getHours() * 24 * 7);
+                count += 5;
+                System.out.println("已经过去了：" + count + " 天");
+                for (MealEntity mealEntity : list) {
+                    stringBuilder.append(mealEntity.toString() + "\n");
+                    System.out.println(mealEntity);
+                }
+                this.send(stringBuilder.toString());
+                stringBuilder = new StringBuilder();
+                System.out.println("已经发送测试邮件：" + count / 5 + "封");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

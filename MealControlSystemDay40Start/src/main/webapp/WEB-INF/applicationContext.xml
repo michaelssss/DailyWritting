@@ -8,6 +8,8 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <context:component-scan base-package="MyMealControlSystem.Services"/>
+    <context:component-scan base-package="MyMealControlSystem.Controller"/>
+
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName">
@@ -29,8 +31,8 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingResources">
             <list>
-                <value>MealEntry.xml</value>
-                <value>FoodlistEntity.hbm.xml</value>
+                <value>MyMealControlSystem/POJO/MealEntry.hbm.xml</value>
+                <value>MyMealControlSystem/POJO/FoodlistEntity.hbm.xml</value>
             </list>
         </property>
 
@@ -50,5 +52,8 @@
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="JSP/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 </beans>
