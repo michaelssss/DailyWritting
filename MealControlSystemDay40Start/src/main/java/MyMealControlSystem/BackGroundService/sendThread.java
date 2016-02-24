@@ -14,12 +14,12 @@ import java.util.Properties;
  * Created by michaelssss on 16-2-8.
  */
 public class sendThread implements Runnable {
-    private String Content;
 
-    private WebApplicationContext ctx;
+    private MealService service;
 
-    public void setCtx(WebApplicationContext ctx) {
-        this.ctx = ctx;
+    public sendThread(WebApplicationContext ctx) {
+        this.service = (MealService) ctx.getBean("mealService");
+        ;
     }
 
     private void send(String content) throws MessagingException {
@@ -49,7 +49,6 @@ public class sendThread implements Runnable {
 
     public void run() {
         System.out.println("邮件服务已经成功启动");
-        MealService service = (MealService) ctx.getBean("mealService");
         List<MealEntity> list = service.queryAll();
         StringBuilder stringBuilder = new StringBuilder();
 

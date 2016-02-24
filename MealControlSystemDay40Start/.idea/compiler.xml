@@ -25,7 +25,7 @@
         <module name="MealControlSystem" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="MealControlSystem" target="1.5" />
     </bytecodeTargetLevel>
   </component>

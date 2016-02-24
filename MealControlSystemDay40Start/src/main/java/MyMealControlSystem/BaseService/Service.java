@@ -62,7 +62,7 @@ public class Service implements ISerivce {
     public <E> List<E> query(Class<E> e) {
         sessionFactory.getCurrentSession().beginTransaction();
 
-        List<E> list = sessionFactory.getCurrentSession().createCriteria(e).list();
+        List<E> list = (List<E>) sessionFactory.getCurrentSession().createCriteria(e).list();
 
         sessionFactory.getCurrentSession().getTransaction().commit();
 

@@ -4,6 +4,7 @@ import MyMealControlSystem.BaseService.Service;
 import MyMealControlSystem.POJO.MealEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,6 +25,12 @@ public class MealService {
     }
 
     public void saveAll(List<MealEntity> list) {
+        service.save(list);
+    }
+
+    public void save(MealEntity mealEntity) {
+        List<MealEntity> list = new ArrayList<MealEntity>();
+        list.add(mealEntity);
         service.save(list);
     }
 }

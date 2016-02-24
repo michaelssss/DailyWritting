@@ -16,6 +16,9 @@
     %>
 </head>
 <body>
+<button onclick="javascript:window.location.href='<%=request.getContextPath()%>';">
+    返回首页
+</button>
 <form action="./FoodListSetup/save" method="post" id="addObject" name="addObject">
     <table>
         <tr>
