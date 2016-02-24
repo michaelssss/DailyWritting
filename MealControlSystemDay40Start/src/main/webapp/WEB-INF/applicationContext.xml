@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <context:annotation-config/>
@@ -14,22 +15,13 @@
     <context:component-scan base-package="MyMealControlSystem.Aspect"/>
 
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName">
-            <value>com.mysql.jdbc.Driver</value>
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:/Meal</value>
         </property>
-        <property name="url">
-            <value>jdbc:mysql://127.0.0.1:3306/Meal?useUnicode=true&amp;characterEncoding=UTF-8</value>
-        </property>
-        <property name="username">
-            <value>root</value>
-        </property>
-        <property name="password">
-            <value>impossble</value>
-        </property>
-
+        <property name="cache" value="false"/>
+        <property name="proxyInterface" value="javax.sql.DataSource"/>
     </bean>
-
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingResources">
@@ -48,9 +40,6 @@
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
                 <prop key="format_sql">true</prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306</prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-
             </props>
         </property>
     </bean>

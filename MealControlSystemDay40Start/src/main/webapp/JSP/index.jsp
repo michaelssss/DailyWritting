@@ -37,7 +37,7 @@
 <b>密码：<%=(String) request.getSession().getAttribute("password")%>
 </b>
 <form action="./logout" method="get">
-    <input type="submit" value="提交"/>
+    <input type="submit" value="退出"/>
 </form>
 </body>
 </html>

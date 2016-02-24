@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
  */
 public class MyServlet extends HttpServlet {
 
-
     public void init(ServletConfig servletConfig) throws ServletException {
         WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
         System.out.println("后台服务启动");
